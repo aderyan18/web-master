@@ -15,6 +15,7 @@ class CreateObatTable extends Migration
     {
         Schema::create('obat', function (Blueprint $table) {
             $table->id();
+            $table->string('gambar');
             $table->string('nama');
             $table->string('satuan');
             $table->double('harga');

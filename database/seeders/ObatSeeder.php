@@ -16,6 +16,7 @@ class ObatSeeder extends Seeder
     {
         $obat = [
             [
+                'gambar' => 'default.png',
                 'nama' => 'paracetamol',
                 'satuan' => 'pcs',
                 'harga' => '5000',

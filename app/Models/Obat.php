@@ -9,6 +9,7 @@ class Obat extends Model
 {
     protected $table = 'obat';
     protected $fillable = [
+        'gambar',
         'nama',
         'satuan',
         'harga',

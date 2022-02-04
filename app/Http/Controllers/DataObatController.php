@@ -16,6 +16,8 @@ class DataObatController extends Controller
     public function create(Request $request)
     {
         $post = $request->all();
+        $url = uploadFile_old(request()->file('gambar'), "gambar/obat", null);
+        $post['gambar']=$url;
         $post['nama'] = strtolower($post['nama']);
         $cek = Obat::where([['nama', $post['nama']], ['satuan', $post['satuan']]])->count();
         if ($cek < 1) {
