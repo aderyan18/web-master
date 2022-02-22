@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Akun;
+use App\Models\Apoteker;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -26,7 +27,15 @@ class DataUserController extends Controller
         $cek = Akun::where($where)->first();
         if (!$cek) {
             Akun::create($post);
+            if($post['role']=="super admin" || $post['role']=="apoteker"){
+                Apoteker::create([
+                        'nip'=>$post['username'],
+                        'nama'=>$post['name'],
+                        'jenis_kelamin'=>"laki-laki",
+                    ]);
+            }
         }
+        
         return back();
     }
 
